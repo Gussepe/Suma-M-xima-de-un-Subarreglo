@@ -139,7 +139,7 @@ Siguiendo la predicción anterior, se ejecutó únicamente la versión lineal pa
 
 Comparación entre predicción y medición
 Algoritmo	Tiempo predicho	Tiempo medido
-Lineal	0.36 s	[PENDIENTE]
+Lineal	0.36 s	0.378766 segundos tiempo real
 
 La versión cúbica y la versión cuadrática no se ejecutaron con n = 10^8, debido a que sus tiempos estimados superaban ampliamente el límite de un minuto establecido en el enunciado.
 
