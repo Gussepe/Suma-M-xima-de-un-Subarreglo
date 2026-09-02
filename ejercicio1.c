@@ -89,6 +89,7 @@ double tiempo_lineal(const int l[], int n) {
     return (double)(fin - inicio) / CLOCKS_PER_SEC;
 }
 
+
 int main() {
     srand(time(NULL));
 
@@ -143,11 +144,6 @@ int main() {
            "Lineal(s)", "Razon");
 
     printf("--------------------------------------------------------------------------------\n");
-
-    /*
-       Guardamos el último tiempo para utilizarlo
-       posteriormente en la predicción.
-    */
     double ultimo_cubica = 0.0;
     double ultimo_cuadratica = 0.0;
     double ultimo_lineal = 0.0;
@@ -164,7 +160,6 @@ int main() {
             break;
         }
 
-        /* Generamos el arreglo fuera de la medición */
         for (int i = 0; i < n; i++) {
             l[i] = -10 + rand() % 21;
         }
@@ -199,21 +194,26 @@ int main() {
     }
     long long n_grande = 100000000LL;
 
+    int *l_grande = malloc((size_t)n_grande * sizeof(int));
+
+    if (l_grande == NULL) {
+      printf("No se pudo reservar memoria para n = %d\n", n_grande);
+      return 1;
+    }
+
+    for (int i = 0; i < n_grande; i++) {
+      l_grande[i] = -10 + rand() % 21;
+    }
+
+    double tiempo_real = tiempo_lineal(l_grande, n_grande);
+
+    printf("\nResultado real de n = %d en la lineal: %.6f segundos\n",n_grande, tiempo_real);
+
+    free(l_grande);
+
     if (ultimo_n > 0) {
 
         double factor = (double)n_grande / ultimo_n;
-
-        /*
-           O(n^3):
-               T(10^8) ~= T(n) * (10^8/n)^3
-
-           O(n^2):
-               T(10^8) ~= T(n) * (10^8/n)^2
-
-           O(n):
-               T(10^8) ~= T(n) * (10^8/n)
-        */
-
         double pred_cubica =
             ultimo_cubica * factor * factor * factor;
 
