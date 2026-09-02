@@ -93,17 +93,15 @@ Se ejecutó el algoritmo lineal con 100 millones de elementos:
 | **Precisión** | ✅ Excelente |
 
 ## 📈 Gráfico Comparativo
-Tiempo (s, escala logarítmica)
+## 📈 Comparación Visual de Rendimiento
 
-Copy100  |                    ● Cúbica
-     |                   /
- 10  |                 /
-     |               ●/ Cuadrática
-  1  |             /
-     |           ●/
-0.1  |         /
-     |       ●  Lineal
-0.01 | / | / 0.001 | / |●──────────────────────── 1000 2000 4000 8000 n
+| Tamaño (n) | Cúbica | Cuadrática | Lineal |
+|---|:---:|:---:|:---:|
+| 1,000 | ████████████████████ 0.53s | ██ 0.002s | ▌ 0.000005s |
+| 2,000 | ███████████████████████████████ 4.17s | ████ 0.006s | ▌ 0.000007s |
+| 4,000 | ██████████████████████████████████████████ 33.4s | ████████ 0.025s | ▌ 0.000014s |
+| 8,000 | ███████████████████████████████████████████████████ 291.3s | ██████████ 0.097s | ▌ 0.000029s |
+
 
 
 ## 🎓 Conclusiones
@@ -122,8 +120,4 @@ Copy100  |                    ● Cúbica
 - **Análisis de Complejidad**: Cormen, Leiserson, Rivest, Stein - "Introduction to Algorithms"
 
 ---
-
-**Autor**: [Tu nombre]  
-**Fecha**: Septiembre 2026  
-**Licencia**: MIT
 
